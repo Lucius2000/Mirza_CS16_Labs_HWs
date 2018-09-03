@@ -110,8 +110,12 @@ std::string linkedListToString(LinkedList *list) {
 // updated
 void addIntToEndOfList(LinkedList *list, int value) {
   assert(list!=NULL); // if list is NULL, we can do nothing.
-
-
+    Node* temp;
+    temp = new Node;
+    temp->data=value;
+    temp->next=NULL;
+    list->tail->next=temp;
+    list->tail=temp;
 }
 
 // Precondition: A valid linked-list on the heap and an integer value
@@ -120,5 +124,9 @@ void addIntToEndOfList(LinkedList *list, int value) {
 // appropriately updated
 void addIntToStartOfList(LinkedList *list, int value) {
   assert(list!=NULL); // if list is NULL, we can do nothing.
-
+    Node* temp;
+    temp = new Node;
+    temp->data=value;
+    temp->next=list->head;
+    list->head=temp;
 }

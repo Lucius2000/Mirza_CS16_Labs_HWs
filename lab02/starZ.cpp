@@ -18,8 +18,38 @@ void runTests(void);
 string starZ(int width)
 {
   string result="";
-  result = "stub"; // TODO: remove this line, replace with correct code
-  return result;
+
+	// check if parameters are valid
+	if (width<3)
+  	return result;
+
+	// Print the first row;
+	for (int col=1; col<= width; col++){
+		result += "*";
+	}
+	result += "\n";
+
+	// Print the body
+	for (int row=1; row<=width-2; row++){
+		for (int col=1; col<= (width-row-1);col++){
+			result+= " ";
+		}
+		
+		result+= "*";
+		
+		for (int col=1;col<=row; col++){
+			result +=" ";
+		}
+		result += "\n";
+	} 
+	
+	// Print the last row
+	for (int col=1; col<=width; col++){
+	result +="*";
+	}
+
+	result += "\n";
+	return result;
 }
 
 // Test-Driven Development; check expected results against actual
@@ -67,15 +97,23 @@ int main(int argc, char *argv[])
 
   // TODO: Add check for parameter
   // and code to print usage message
-
+	if (argc!=2){
+		cerr << "Usage: " << argv[0]<< "width"<<endl;
+		exit(1);
+	}
+	
+	int width = stoi(argv[1]);
   // TODO: Add code to get width from cmd line arg
   // code that checks if it is -1; if so, call runTests()
   // then exit.
-
+	if (width==-1){
   runTests();
+	exit(0);
+	}
 
+	
   // TODO: Add code that calls the starZ function and prints
   // the result on cout (without an extra newline)
-
+	cout << starZ(width);
   return 0;
 }

@@ -18,8 +18,15 @@ Node * pointerToMax(LinkedList *list) {
 
   // TODO: Insert code here to calculate and return
   //   value of pointer to max element (first one if ties.)
-
-  return NULL; // STUB!  Replace this line with correct code
+    Node * max;
+    max = list->head;
+    Node * iter;
+    for (iter = list->head->next; iter != NULL; iter = iter->next)
+        if ((iter->data) > (max->data)){
+            max = iter;
+        }
+    
+  return max; // STUB!  Replace this line with correct code
 }
 
 // list: ptr to a linked list of Node (each with int data, and Node * next)
@@ -41,8 +48,14 @@ Node * pointerToMin(LinkedList *list) {
   // TODO: Insert code here to calculate and return
   //   value of pointer to min element 
   //   (first one such value that occurs if there are ties.)
-
-  return NULL; // STUB!  Replace this line with correct code
+    Node * min;
+    min = list->head;
+    Node * iter;
+    for (iter = list->head->next; iter != NULL; iter = iter->next)
+        if ((iter->data) < (min->data)){
+            min = iter;
+        }
+  return min; // STUB!  Replace this line with correct code
 
 }
 
@@ -61,8 +74,14 @@ int largestValue(LinkedList *list) {
 
   // TODO: Insert code here to calculate and return
   //   largest value in list (which may not be unique).
-
-  return -42; // STUB!  Replace this line with correct code
+    Node * max;
+    max = list->head;
+    Node * iter;
+    for (iter = list->head->next; iter != NULL; iter = iter->next)
+        if ((iter->data) > (max->data)){
+            max = iter;
+        }
+  return max->data;
 
 }
 
@@ -80,8 +99,14 @@ int smallestValue(LinkedList *list) {
 
   // TODO: Insert code here to calculate and return
   //   smallest value in list (which may not be unique).
-
-  return -42; // STUB!  Replace this line with correct code
+    Node * min;
+    min = list->head;
+    Node * iter;
+    for (iter = list->head->next; iter != NULL; iter = iter->next)
+        if ((iter->data) < (min->data)){
+            min = iter;
+        }
+  return min->data; // STUB!  Replace this line with correct code
 
 }
 
@@ -99,8 +124,52 @@ int sum(LinkedList * list) {
 
   // TODO: Insert code here to calculate and return
   //   sum of all values in list (0 if there are none).
-
-  return -42; // STUB!  Replace this line with correct code
+    Node * iter;
+    int sum = 0;
+    for (iter=list->head; iter!= NULL; iter = iter->next){
+        sum += iter->data;}
+  return sum; // STUB!  Replace this line with correct code
 
 }
+// list: ptr to a linked list of Node (each with int data, and Node * next)
+// value: int value of the node to delete
+// Delete all instances of Nodes with the given value in a recursive way.
+// Use a helper function that performs the recursion
 
+void deleteNodeRecursively(LinkedList * list, int value){
+    Node* recur = list->head;
+    helper(recur);
+}
+
+void helper (struct Node* ptr){
+    if (ptr->next == NULL){
+        Node * temp = ptr;
+        return;}
+   
+    helper(ptr->next);
+    
+    if (ptr->next->data == value){
+        //check if the last node is the one we want to delete.
+        if (ptr->next->next == NULL){
+            tail = ptr;
+            ptr->next = null;
+        }
+        else
+            
+    }
+}
+
+// list: ptr to a linked list of Node (each with int data, and Node * next)
+// value: int value of the node to delete
+// Delete the instances of all Node with the given value using loops.
+
+void deleteNodeIteratively(LinkedList * list, int value);
+
+// list: ptr to a linked list of Node (each with int data, and Node * next)
+// Nodes in the linked list are expected to be in sorted ascending order
+// value: int value of the node to insert
+// Insert a new node in the linked list with the given value at the right spot
+// The final linked list should have all its nodes in sorted ascending order
+// Your implmentation should allow duplicate values in the list
+
+void insertNodeToSortedList(LinkedList * list, int value);

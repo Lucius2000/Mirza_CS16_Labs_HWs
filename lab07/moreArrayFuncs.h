@@ -71,4 +71,26 @@ int copyOddOnly(int *dest, int *src, int n);
 
 void multiplyPairwise(int *a, int *b, int *product, int n);
 
+// list: ptr to a linked list of Node (each with int data, and Node * next)
+// value: int value of the node to delete
+// Delete all instances of Nodes with the given value in a recursive way.
+// Use a helper function that performs the recursion
+
+void deleteNodeRecursively(LinkedList * list, int value);
+
+// list: ptr to a linked list of Node (each with int data, and Node * next)
+// value: int value of the node to delete
+// Delete the instances of all Node with the given value using loops.
+
+void deleteNodeIteratively(LinkedList * list, int value);
+
+// list: ptr to a linked list of Node (each with int data, and Node * next)
+// Nodes in the linked list are expected to be in sorted ascending order
+// value: int value of the node to insert
+// Insert a new node in the linked list with the given value at the right spot
+// The final linked list should have all its nodes in sorted ascending order
+// Your implmentation should allow duplicate values in the list
+
+void insertNodeToSortedList(LinkedList * list, int value);
+
 #endif

@@ -10,12 +10,49 @@
 // then be sure to  #include "utility.h" in the file where you use
 // these functions
 
-bool isOdd(int x) { 
+#include <stdlib.h>
+
+bool isOdd(int x) {
+    int i=1;
+    x = abs(x);
+    while (i<x) {
+        if ((2*i+1)==x){
+            return true;
+            break;
+        }
+        i++;
+    }
   return false;  // REPLACE THIS STUB WITH REAL CODE
 }
-bool isEven(int x) { 
+
+
+bool isEven(int x) {
+    int i=1;
+    x = abs(x);
+    while (i<x) {
+        if ((2*i)==x){
+            return true;
+            break;
+        }
+        i++;
+    }
   return false;  // REPLACE THIS STUB WITH REAL CODE
 }
-bool isPrime(int x) { 
-  return false;  // REPLACE THIS STUB WITH REAL CODE
+
+bool isPrime(int x) {
+    int i;
+    
+    if (x<=1)
+        return false;
+
+    if(x==2)
+        return true;
+    
+    for(i=2;i*i<=x;i++){
+        if(x%i==0){
+            return false;
+        }
+    }
+    
+    return true; // REPLACE THIS STUB WITH REAL CODE
 }
